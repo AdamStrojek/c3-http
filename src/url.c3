@@ -73,6 +73,10 @@ fn Url parse_url(String url) {
         result.port = 80;
     }
 
+    if( result.path == "" ) {
+        result.path = "/";
+    }
+
     return result;
 }
 
@@ -91,6 +95,7 @@ fn void! test_parse_url_port() @test
     assert(url.schema == "http", "Wrong protocol, expected http");
     assert(url.host == "example.com", "Wrong host, expected example.com");
     assert(url.port == 8080, "Wrong port, expected 8080");
+    assert(url.path == "/", "Wrong port, expected 8080");
 }
 
 
