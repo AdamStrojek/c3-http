@@ -1,10 +1,11 @@
 // Simple HTTP example in C3
 //
 // How to compile:
-// c3c compile simplehttp
+// c3c compile example.c3 client.c3
 //
 // How to run:
 // ./simplehttp www.google.com
+module http::example;
 
 import std::io;
 import std::net::tcp;
