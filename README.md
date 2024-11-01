@@ -1,6 +1,7 @@
-# Simple HTTP client in C3 language
+# C3 HTTP module
 
-This repository contains a simple HTTP client written in the C3 programming language. Given the lack of comprehensive socket examples in C3, this project aims to provide a clear, functional example for anyone interested in network programming with C3.
+
+The **C3 HTTP Module** is an implementation of the Hypertext Transfer Protocol (HTTP) in the C3 programming language. This module provides functionality for creating HTTP servers and clients, handling HTTP requests and responses, and supports various HTTP methods and headers.
 
 ## Prerequisites
 
@@ -11,7 +12,7 @@ This repository contains a simple HTTP client written in the C3 programming lang
 Compile the source code using the C3 compiler:
 
 ```shell
-c3c compile simplehttp.c3
+c3c build
 ```
 
 ## Usage
@@ -19,10 +20,8 @@ c3c compile simplehttp.c3
 Run the compiled executable with the desired URL:
 
 ```shell
-./simplehttp www.google.com
+./build/example http://www.google.com/
 ```
-
-To improve the README file, consider adding more details and structure to make it clear, informative, and user-friendly. Here’s an enhanced version of your README:
 
 ## License
 
