@@ -8,11 +8,12 @@
 module http::example;
 
 import std::io;
-import std::net::tcp;
 import libc;
 
 import http::url;
 import http::request;
+import http::client;
+
 
 fn void! main(String[] args) {
     if(args.len < 2) {
@@ -24,27 +25,18 @@ fn void! main(String[] args) {
     Url url = url::parse_url(args[1]);
     String method = "GET";
 
-    TcpSocket soc = tcp::connect(url.host, url.port)!;
-    soc.set_keepalive(false)!;
-
     HttpRequest req = {
-        .method = "GET",
-        .host = url.host,
-        .resource = url.path,
+        .method = HttpMethod.GET,
+        .url = url,
     };
 
+    HttpClient client;
 
     io::printn("Request:");
     io::printn(req.generate_str());
-
-    usz len = soc.write(req.generate_str())!;
-    io::printfn("Request sent to: %s:%d (len: %d)", url.host, url.port, len);
-
-    char[] buf = mem::new_array(char, 255);
+    io::printn();
 
     io::printn("Response:");
-    // while((len = soc.read(buf)!) != 0) {
-    //     io::print(buf[:len]);
-    // }
+    io::printn(client.request(req)!);
     io::printn();
 }
