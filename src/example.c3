@@ -8,7 +8,6 @@
 module http::example;
 
 import std::io;
-import libc;
 
 import http::url;
 import http::request;
