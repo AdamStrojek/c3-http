@@ -9,7 +9,7 @@ struct HttpClient {
     TcpSocket socket;
 }
 
-fn String! HttpClient.request(HttpClient client, HttpRequest request) {
+fn String! HttpClient.request(client, HttpRequest request) {
     client.socket = tcp::connect(request.url.host, request.url.port)!;
     client.socket.set_keepalive(false)!;
 

@@ -19,7 +19,7 @@ enum HttpMethod {
     PATCH,
 }
 
-fn String HttpRequest.generate_str(HttpRequest request) {
+fn String HttpRequest.generate_str(request) {
     DString result;
 
     result.appendf("%s %s HTTP/1.1\r\n", request.method, request.url.path);
